@@ -1,0 +1,20 @@
+nav.navbar.navbar-toggleable-sm.navbar-light.bg-faded
+  button.navbar-toggler.navbar-toggler-right [    
+    aria-controls="topNavContent" 
+    aria-expanded="false" 
+    aria-label="Toggle navigation"
+    data-target="#topNavContent"
+    data-toggle="collapse"
+    type="button" 
+  ]
+    span.navbar-toggler-icon
+  a.navbar-brand [href="/"] 
+    | Forum
+  #topNavContent.collapse.navbar-collapse.justify-content-end
+    ul.nav.navbar-nav
+      - if user_signed_in?
+        = render "layouts/notification_dropdown"
+        li.nav-item = link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"
+      - else
+        li.nav-item = link_to "Sign up", new_user_registration_path, class: "nav-link"
+        li.nav-item = link_to "Log in", new_user_session_path, class: "nav-link"

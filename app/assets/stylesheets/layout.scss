@@ -1,0 +1,43 @@
+body {
+  background-color: $body-bg;
+}
+
+main {
+  min-height: 80vh;
+}
+
+.alert {
+  border-radius: 0;
+}
+
+.navbar {
+  margin-bottom: 40px;
+}
+
+.unread {
+  border-left: 3px solid red;
+}
+
+.flash_message.alert {
+  width: 100vw;
+  margin-bottom: 0;
+  opacity: .95;
+  min-height: 58px;
+}
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: $blue;
+}
+
+a.navbar-brand {
+  font-size: 2.0rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  font-weight: bold;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}

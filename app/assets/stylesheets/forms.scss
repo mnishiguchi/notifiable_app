@@ -1,0 +1,13 @@
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-control {
+  border-radius: 0;
+}
+
+abbr[title="required"] {
+  color: $red;
+  text-decoration: none;
+}

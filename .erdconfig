@@ -1,0 +1,22 @@
+attributes:
+  - content
+  - inheritance
+  - foreign_keys
+  - timestamps
+disconnected: true
+filename: erd/erd
+filetype: jpg
+indirect: true
+inheritance: true
+markup: true
+notation: bachman
+orientation: horizontal
+polymorphism: true
+sort: true
+warn: true
+title: ERD
+exclude: ApplicationRecord
+only: null
+only_recursion_depth: null
+prepend_primary: false
+cluster: true

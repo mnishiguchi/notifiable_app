@@ -1,0 +1,56 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,300);
+
+// Swatch
+$gray-1: #f1f1f1;
+$gray-2: #c1c1c1;
+$gray-3: #717171;
+$gray-4: #515151;
+$gray-5: #313131;
+
+$blue: #268bd2;
+$blue-darker: rgba(#16527c, 0.6);
+$red: #ac4142;
+$orange: #d28445;
+$yellow: #f4bf75;
+$green: #90a959;
+$cyan: #75b5aa;
+$brown: #8f5536;
+
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$linkedin: #007bb6;
+$youtube: #bb0000;
+$vimeo: #aad450;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$flickr: #ff0084;
+$dribbble: #ea4c89;
+$quora: #a82400;
+$foursquare: #0072b1;
+$forrst: #5B9A68;
+$vk: #45668e;
+$wordpress: #21759b;
+$stumbleupon: #EB4823;
+$yahoo: #7B0099;
+$blogger: #fb8f3d;
+$soundcloud: #ff3a00;
+
+
+// Configure colors for the app.
+$root-font-family: 'Lato', "Helvetica Neue", Arial, sans-serif;
+$root-font-size: 18px;
+$root-line-height: 1.6;
+
+$header-color: rgb(6,29,47);
+$footer-color: darken(rgb(6,29,47), 5%);
+
+$body-color: $gray-5;
+$body-bg: white;
+
+$link-color: $blue;
+$link-hover-color: #6a9fb5;
+
+$heading-font-family: 'Lato', "Helvetica Neue", Arial, sans-serif;
+$heading-font-color: #425469;

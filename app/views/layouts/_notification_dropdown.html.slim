@@ -1,0 +1,18 @@
+- notification_template = render(template: "notifications/index", formats: [:json])
+li.nav-item.dropdown [
+  data-behavior="notifications" 
+  data-notifications='#{notification_template}'
+]
+  a#unredCountDropdown.dropdown-toggle.nav-link [
+    aria-expanded="false" 
+    aria-haspopup="true" 
+    data-behavior="notifications-link" 
+    data-toggle="dropdown" 
+    type="button" 
+  ]
+    = fa_icon "bell"
+    span data-behavior="unread-count" 
+  .dropdown-menu.dropdown-menu-right [
+    data-behavior="notification-items"
+    aria-labelledby="unredCountDropdown"
+  ] 
