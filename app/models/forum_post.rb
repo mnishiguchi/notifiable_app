@@ -10,7 +10,7 @@
 #  updated_at      :datetime         not null
 #
 
-class ForumPost < ActiveRecord::Base
+class ForumPost < ApplicationRecord
   belongs_to :forum_thread
   belongs_to :user
 end

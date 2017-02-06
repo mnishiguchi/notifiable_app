@@ -13,7 +13,7 @@
 #  updated_at      :datetime         not null
 #
 
-class Notification < ActiveRecord::Base
+class Notification < ApplicationRecord
 
   belongs_to :actor,     class_name: "User"  # A user who has triggered a notification.
   belongs_to :recipient, class_name: "User"  # A user who will receive that notification.

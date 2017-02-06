@@ -18,7 +18,7 @@
 #  username               :string
 #
 
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
   # Notifications that are sent to this user.
