@@ -7,9 +7,10 @@ class ForumPostsController < ApplicationController
     @forum_post.user = current_user
     if @forum_post.save
 
-      # Create the notifications
-      (@forum_thread.users.uniq - [current_user]).each do |user|
-        Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @forum_post)
+      # Send the notifications to the rest of the users in this thread.
+      recipients = (@forum_thread.users.uniq - [current_user])
+      recipients.each do |recipient|
+        Notification.posted(recipient: recipient, actor: current_user, notifiable: @forum_post)
       end
 
       redirect_to @forum_thread

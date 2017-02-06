@@ -1,0 +1,6 @@
+= form_for @forum_thread do |f| 
+  .form-group
+    = f.label :title 
+    = f.text_field :title, class: "form-control" 
+  .form-group
+    = f.submit class: "btn btn-primary" 

@@ -1,0 +1,7 @@
+= link_to "New Thread", new_forum_thread_path, class: "btn btn-primary pull-right" 
+
+h1 Threads
+
+ul
+  - @forum_threads.each do |forum_thread| 
+    li = link_to forum_thread.title, forum_thread 

@@ -1,5 +1,0 @@
-<%= link_to forum_thread_path(notification.notifiable.forum_thread, anchor: dom_id(notification.notifiable)), class: "dropdown-item #{"unread" if !notification.read_at?}" do %>
-  <%= notification.actor.username %>
-  <%= notification.action %>
-  a <%= notification.notifiable_type.underscore.humanize.downcase %>
-<% end %>

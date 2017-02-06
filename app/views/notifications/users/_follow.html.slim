@@ -1,0 +1,3 @@
+a [href="#", class="dropdown-item #{"unread" if !notification.read_at?}"]
+  | #{notification.actor.email} #{notification.action}
+  ' ed you
