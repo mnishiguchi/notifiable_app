@@ -12,7 +12,7 @@ In this app, I will learn how to build notification functionality through analyz
 
 ---
 
-## Model
+## Database structure
 
 ![](erd/erd.jpg)
 
@@ -47,3 +47,7 @@ In this app, I will learn how to build notification functionality through analyz
 
 #### Generate DOM id string
 - [rails/ActionView/RecordIdentifier/dom_id](http://apidock.com/rails/ActionView/RecordIdentifier/dom_id)
+
+#### [Active Record Nested Attributes](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)
+- [Validating the presence of a parent model](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#module-ActiveRecord::NestedAttributes::ClassMethods-label-Validating+the+presence+of+a+parent+model)
+- [gist](https://gist.github.com/mnishiguchi/1206840d369056a3075421005d6f8dc4)

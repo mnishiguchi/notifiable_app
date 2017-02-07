@@ -46,8 +46,8 @@ gem 'font-awesome-rails'
 gem 'slim-rails'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -61,6 +61,7 @@ group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'bullet'
   gem 'erd'
 end
 
