@@ -13,4 +13,6 @@
 class ForumPost < ApplicationRecord
   belongs_to :forum_thread
   belongs_to :user
+
+  validates :forum_thread, presence: true
 end

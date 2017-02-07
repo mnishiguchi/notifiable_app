@@ -11,6 +11,12 @@
 
 class ForumThread < ApplicationRecord
   belongs_to :user
-  has_many :forum_posts
+
+  # http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#module-ActiveRecord::NestedAttributes::ClassMethods-label-Validating+the+presence+of+a+parent+model
+  has_many :forum_posts, inverse_of: :forum_thread
   has_many :users, through: :forum_posts
+
+  accepts_nested_attributes_for :forum_posts
+
+  validates :title, presence: true
 end
