@@ -1,4 +1,4 @@
-class ForumPostsController < ApplicationController
+class ForumThread::ForumPostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_forum_thread
 
