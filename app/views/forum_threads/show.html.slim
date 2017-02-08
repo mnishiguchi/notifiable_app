@@ -1,13 +1,8 @@
 p = link_to "Back to all threads", forum_threads_path
 
 h1 = @forum_thread.title 
-hr
 
 - @forum_thread.forum_posts.includes(:user).each do |forum_post| 
-  div [id="#{dom_id(forum_post)}"]
-    p 
-      | #{forum_post.user.email} posted:
-      = simple_format forum_post.body 
-  hr
+  = render 'forum_threads/forum_posts/forum_post', forum_post: forum_post
   
 = render partial: "forum_threads/forum_posts/form" 
