@@ -1,0 +1,7 @@
+#unredCountDropdown.hasUnread {
+  color: red;
+}
+
+div[data-behavior="notification-items"] > .unread {
+  border-left: 3px solid red;
+}

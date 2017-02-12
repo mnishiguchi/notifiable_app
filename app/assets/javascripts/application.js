@@ -3,4 +3,3 @@
 //= require tether
 //= require bootstrap
 //= require turbolinks
-//= require notifications

@@ -1,7 +1,5 @@
-- notification_template = render(template: "notifications/index", formats: [:json])
 li.nav-item.dropdown [
   data-behavior="notifications" 
-  data-notifications='#{notification_template}'
 ]
   a#unredCountDropdown.dropdown-toggle.nav-link [
     aria-expanded="false" 
@@ -9,10 +7,12 @@ li.nav-item.dropdown [
     data-behavior="notifications-link" 
     data-toggle="dropdown" 
     type="button" 
+    class="#{@notifications.count > 0 ? 'hasUnread' : ''}"
   ]
     = fa_icon "bell"
-    span data-behavior="unread-count" 
-  .dropdown-menu.dropdown-menu-right [
-    data-behavior="notification-items"
-    aria-labelledby="unredCountDropdown"
-  ] 
+    span [data-behavior="unread-count"] = @notifications.count
+  
+  .dropdown-menu.dropdown-menu-right [data-behavior="notification-items" aria-labelledby="unredCountDropdown"] 
+    - @notifications.each do |notification|
+      = render partial: "notifications/#{notification.notifiable_type.underscore.pluralize}/#{notification.action}", 
+               locals:  { notification: notification }

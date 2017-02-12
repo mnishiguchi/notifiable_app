@@ -1,6 +1,8 @@
-- anchor     = dom_id(notification.notifiable)
-- path       = forum_thread_path(notification.notifiable.forum_thread, anchor: anchor)
-- class_name = "dropdown-item #{"unread" if !notification.read_at?}"
+-# A notification dropdown item for recently-posted thread posts.
+-# Required locals: notification
 
-= link_to path, class: class_name, data: {notification_id: notification.id} do
+- path = forum_thread_path(notification.notifiable.forum_thread, anchor: dom_id(notification.notifiable))
+- class_name = "unread" if !notification.read_at?
+
+a.dropdown-item [href="#{path}" class="#{class_name}"]
   | #{notification.actor.email} #{notification.action} #{notification.notifiable_type.underscore.humanize.downcase}
