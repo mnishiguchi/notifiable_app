@@ -9,12 +9,20 @@ class NotificationsController < ApplicationController
 
   # POST   /notifications/1/mark_as_read.json
   def mark_as_read
-    # Mark as read the specified notification.
     notification = Notification.find(params[:id])
+
+    unless notification.unread?
+      render(nothing: true) and return
+    end
+
+    # Mark as read the specified notification.
     notification.update!(read_at: Time.zone.now)
 
     # Send the updated JSON list of notification back to the browser.
     @notifications = Notification.where(recipient: current_user).recent
-    render json: @notifications
+
+    respond_to do |format|
+      format.js { }
+    end
   end
 end

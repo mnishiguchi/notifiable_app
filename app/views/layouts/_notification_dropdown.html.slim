@@ -7,12 +7,12 @@ li.nav-item.dropdown [
     data-behavior="notifications-link" 
     data-toggle="dropdown" 
     type="button" 
-    class="#{@notifications.count > 0 ? 'hasUnread' : ''}"
+    class="#{notifications.unread.count > 0 ? 'hasUnread' : ''}"
   ]
     = fa_icon "bell"
-    span [data-behavior="unread-count"] = @notifications.count
+    span [data-behavior="unread-count"] = notifications.unread.count
   
   .dropdown-menu.dropdown-menu-right [data-behavior="notification-items" aria-labelledby="unredCountDropdown"] 
-    - @notifications.each do |notification|
+    - notifications.each do |notification|
       = render partial: "notifications/#{notification.notifiable_type.underscore.pluralize}/#{notification.action}", 
                locals:  { notification: notification }

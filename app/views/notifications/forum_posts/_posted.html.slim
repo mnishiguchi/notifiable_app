@@ -1,8 +1,19 @@
 -# A notification dropdown item for recently-posted thread posts.
 -# Required locals: notification
 
-- path = forum_thread_path(notification.notifiable.forum_thread, anchor: dom_id(notification.notifiable))
-- class_name = "unread" if !notification.read_at?
+-# Marks as read the clicked notification item by sending an async request to the server.
+-# Jump to the actual content of the clicked notification item by using Turbolinks.visit function.
 
-a.dropdown-item [href="#{path}" class="#{class_name}"]
+- dom_class = "dropdown-item notification_item #{"unread" if !notification.read_at?}"
+- dom_id    = dom_id(notification.notifiable)
+
+= link_to mark_as_read_notification_path(notification.id), class: dom_class, id:dom_id, method: :post, remote: true do
   | #{notification.actor.email} #{notification.action} #{notification.notifiable_type.underscore.humanize.downcase}
+
+- jump_to_anchor = forum_thread_path(notification.notifiable.forum_thread, anchor: dom_id)
+
+javascript:
+  // Jump to the clicked notification item.
+  document.querySelector("##{dom_id}").addEventListener('click', (e) => {
+    Turbolinks.visit("#{jump_to_anchor}")
+  })

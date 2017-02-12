@@ -1,0 +1,9 @@
+// http://guides.rubyonrails.org/working_with_javascript_in_rails.html#form-for
+// http://guides.rubyonrails.org/layouts_and_rendering.html#rendering-collections
+
+console.debug("Updating notifications")
+
+// Update the noticfiation drowdown with the new dataset.
+$('#notification_dropdown').html(
+  '<%= j(render "layouts/notification_dropdown", notifications: @notifications) %>'
+)

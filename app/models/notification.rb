@@ -30,4 +30,8 @@ class Notification < ApplicationRecord
   def self.follow(actor:, recipient:, notifiable:)
     Notification.create!(action: "follow", recipient: recipient, actor: actor, notifiable: notifiable)
   end
+
+  def unread?
+    !read_at
+  end
 end
