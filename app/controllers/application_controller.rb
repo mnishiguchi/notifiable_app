@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :set_notifications, if: :user_signed_in?
 
+  include ForumPostsHelper
+
   def set_notifications
     @notifications = Notification.where(recipient: current_user).recent
   end

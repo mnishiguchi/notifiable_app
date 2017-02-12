@@ -17,6 +17,8 @@ In this app, I will learn how to build notification functionality through analyz
 
 ![](erd/erd.jpg)
 
+---
+
 ## Notification system
 
 #### Model
@@ -31,7 +33,14 @@ In this app, I will learn how to build notification functionality through analyz
 - [Persisting Elements Across Page Loads](https://github.com/turbolinks/turbolinks#persisting-elements-across-page-loads)
   + `<div id="cart-counter" data-turbolinks-permanent>1 item</div>`
 - After messing with both the above-mentioned, I decided to use `Turbolinks.clearCache` because
-it makes things simple and working perfectly. 
+it makes things simple and working perfectly.
+
+---
+
+## Formatting text input
+
+- [rails/ActionView/Helpers/TextHelper/simple_format](http://apidock.com/rails/ActionView/Helpers/TextHelper/simple_format)
+- [jch/html-pipeline](https://github.com/jch/html-pipeline) - HTML processing filters and utilities
 
 ---
 

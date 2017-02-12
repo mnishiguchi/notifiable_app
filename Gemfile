@@ -45,6 +45,12 @@ gem 'faker'
 gem 'font-awesome-rails'
 gem 'slim-rails'
 
+# Markdown support
+# https://github.com/jch/html-pipeline
+gem 'html-pipeline'
+gem 'github-markdown'
+gem 'sanitize'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
@@ -59,6 +65,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'annotate'
+  gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
