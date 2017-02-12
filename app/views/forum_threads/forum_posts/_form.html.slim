@@ -1,6 +1,5 @@
 = form_for [@forum_thread, @forum_post] do |f| 
   .form-group
-    = f.label :body 
-    = f.text_area :body, class: "form-control" 
+    = f.text_area :body, placeholder: "Add a comment", rows: 10, class: "form-control" 
   .form-group
     = f.submit class: "btn btn-primary" 

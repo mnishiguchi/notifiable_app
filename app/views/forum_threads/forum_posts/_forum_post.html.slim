@@ -3,8 +3,12 @@ div.forum_post [id="#{dom_id(forum_post)}"]
     | Posted by #{forum_post.user.email}
     = simple_format forum_post.body 
 
-css:
+scss:
   .forum_post {
     border-top: 1px solid #ccc;
     padding: 1rem 0 0 0;
+    &:target {
+      background: rgb(248, 238, 99);
+      padding: 1rem;
+    }
   }

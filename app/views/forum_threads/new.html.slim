@@ -1,3 +1,14 @@
 h1 New Forum Thread
 
-= render partial: "form"
+= form_for @forum_thread do |f| 
+  .form-group
+    = f.label :title 
+    = f.text_field :title, class: "form-control" 
+
+    = f.fields_for :forum_posts do |f_post|
+      .form-group
+        = f_post.label :body 
+        = f_post.text_area :body, placeholder: "Add a comment", rows: 10, class: "form-control" 
+  
+  .form-group
+    = f.submit class: "btn btn-primary" 

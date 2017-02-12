@@ -13,7 +13,8 @@ class ForumThread::ForumPostsController < ApplicationController
         Notification.posted(recipient: recipient, actor: current_user, notifiable: @forum_post)
       end
 
-      redirect_to @forum_thread
+      flash[:notice] = "Successfully posted"
+      redirect_to forum_thread_path(@forum_thread, anchor: "forum_post_#{@forum_post.id}")
     else
       render "forum_threads/show"
     end

@@ -45,8 +45,11 @@ In this app, I will learn how to build notification functionality through analyz
 
 ## Some techniques
 
-#### Generate DOM id string
+#### Generate DOM id string in the view
 - [rails/ActionView/RecordIdentifier/dom_id](http://apidock.com/rails/ActionView/RecordIdentifier/dom_id)
+
+#### Jumping to a record using anchor and dom_id
+- [https://gist.github.com/mnishiguchi/a47c9f2391271f184dadcd5cbdabae5b](https://gist.github.com/mnishiguchi/a47c9f2391271f184dadcd5cbdabae5b)
 
 #### [Active Record Nested Attributes](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)
 - [Validating the presence of a parent model](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#module-ActiveRecord::NestedAttributes::ClassMethods-label-Validating+the+presence+of+a+parent+model)
