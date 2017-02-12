@@ -3,6 +3,9 @@
 
 console.debug("Updating notifications")
 
+// Clear cached pages that have old unread counts.
+Turbolinks.clearCache()
+
 // Update the noticfiation drowdown with the new dataset.
 $('#notification_dropdown').html(
   '<%= j(render "layouts/notification_dropdown", notifications: @notifications) %>'
