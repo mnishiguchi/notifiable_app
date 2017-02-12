@@ -6,6 +6,7 @@ In this app, I will learn how to build notification functionality through analyz
 ## Dependencies
 - Ruby 2.3.1
 - Rails 5.0.1
+- Turbolinks
 - Devise
 - [Bootstrap 4](https://v4-alpha.getbootstrap.com/getting-started/introduction/)
 - and much more
@@ -22,24 +23,7 @@ In this app, I will learn how to build notification functionality through analyz
 - polymorphic `Notification` model
 
 #### View
-- Renders JSON with an HTML template embedded within.
-- By convention, an apropriate HTML partial is rendered from: `app/views/notifications/<plural model name>/_<notification action name>`
-
-```js
-[
-  {
-    id: 46,
-    unread: true,
-    template: "<a class="dropdown-item unread" href="/forum_threads/25#forum_post_101">user3@example.com posted forum post</a>"
-  },
-  //...
-]
-```
-
-#### Javascript
-- `app/assets/javascripts/notifications.js`
-- DOM manipulation
-- Fetch notification data every 5 seconds
+- By convention, an appropriate HTML partial is rendered from: `app/views/notifications/<plural model name>/_<notification action name>`
 
 ---
 
