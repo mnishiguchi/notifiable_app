@@ -27,13 +27,34 @@ In this app, I will learn how to build notification functionality through analyz
 #### View
 - By convention, an appropriate HTML partial is rendered from: `app/views/notifications/<plural model name>/_<notification action name>`
 
-#### Turbolinks considerations
+---
+
+## Turbolinks considerations
+
+#### Notification unread count
+
 - [Turbolinks.clearCache](https://github.com/turbolinks/turbolinks#turbolinksclearcache)
   + `Turbolinks.clearCache()`
 - [Persisting Elements Across Page Loads](https://github.com/turbolinks/turbolinks#persisting-elements-across-page-loads)
   + `<div id="cart-counter" data-turbolinks-permanent>1 item</div>`
 - After messing with both the above-mentioned, I decided to use `Turbolinks.clearCache` because
 it makes things simple and working perfectly.
+
+#### Third party JS libraries
+
+```js
+App.markdownEditor.init = () => {
+  // turbolinks:before-cache fires before Turbolinks saves the current page to cache.
+  // https://github.com/turbolinks/turbolinks#full-list-of-events
+  document.addEventListener('turbolinks:before-cache', () => {
+    if (App.simplemde) { teardown() }
+  })
+
+  document.addEventListener('turbolinks:load', () => {
+    setup()
+  })
+  //...
+```
 
 ---
 
