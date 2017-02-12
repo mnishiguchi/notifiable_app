@@ -1,5 +1,8 @@
-# https://github.com/jch/html-pipeline
 module ForumPostsHelper
+  # https://github.com/jch/html-pipeline
+  # gem 'html-pipeline'
+  # gem 'github-markdown'
+  # gem 'sanitize'
   def markdownify(content)
     pipeline_context = { gfm: true}
     pipeline_filters = [
