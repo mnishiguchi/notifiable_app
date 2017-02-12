@@ -2,5 +2,5 @@
 - path       = forum_thread_path(notification.notifiable.forum_thread, anchor: anchor)
 - class_name = "dropdown-item #{"unread" if !notification.read_at?}"
 
-= link_to path, class: class_name do
+= link_to path, class: class_name, data: {notification_id: notification.id} do
   | #{notification.actor.email} #{notification.action} #{notification.notifiable_type.underscore.humanize.downcase}

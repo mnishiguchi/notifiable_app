@@ -7,9 +7,10 @@ class Notifications {
       // Get a list of notification items.
       this.updateUI(this.notifications.data("notifications"))
 
-      // Subscribe click event on the dropdown toggle.
-      $("[data-behavior='notifications-link']").on("click", () => {
-        this.handleClickNotificationLink()
+      // Listen for click event on the notification items.
+      $("[data-behavior='notification-items']").on("click", (e) => {
+        const { notificationId } = e.target.dataset
+        this.handleClickNotificationLink(notificationId)
       })
 
       // Fetch notifications from the server every 5 seconds.
@@ -26,43 +27,41 @@ class Notifications {
       dataType: "JSON",
       method: "GET",
       success: (data) => {
-
-        console.log(data)
-
         this.updateUI(data)
       }
     })
   }
 
-  // Marks the notification as read.
-  handleClickNotificationLink(e) {
+  // Marks the specified notification item as read.
+  handleClickNotificationLink(notificationId) {
     $.ajax({
-      url: "/notifications/mark_as_read",
+      url: `/notifications/${notificationId}/mark_as_read`,
       dataType: "JSON",
       method: "POST",
-      success: () => {
-        // Reset the unread-count to 0.
-        setTimeout(() => {
-          $("[data-behavior='unread-count']").text(0)
-        }, 1000)
+      success: (notifications) => {
+        this.updateUI(notifications)
       }
     })
   }
 
   // Update UI with the specified set of notifications.
-  updateUI(data) {
+  updateUI(notifications) {
     // Convert notifications to template.
-    const items = data.map(notification => {
+    const items = notifications.map(notification => {
       return notification.template
     })
 
     // Count unread notifications.
     let unread_count = 0
-    data.forEach(notification => {
-      if (notification.unread) {
-        unread_count += 1
-      }
+    notifications.forEach(notification => {
+      if (notification.unread) { ++unread_count }
     })
+
+    if (unread_count > 0) {
+      document.querySelector('#unredCountDropdown').style.color = 'red'
+    } else {
+      document.querySelector('#unredCountDropdown').style.color = ''
+    }
 
     // Update notification in the DOM.
     $("[data-behavior='unread-count']").text(unread_count)
