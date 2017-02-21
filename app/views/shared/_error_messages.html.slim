@@ -1,0 +1,9 @@
+-# To render this partial, add the following line inside a form_for block:
+-# = render 'shared/error_messages', object: f.object
+- if object.errors.any?
+  #error_explanation
+    .alert.alert-danger
+      ul
+        - object.errors.full_messages.each do |msg|
+          li
+            = msg
