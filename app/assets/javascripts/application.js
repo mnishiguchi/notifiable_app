@@ -5,4 +5,5 @@
 //= require turbolinks
 //= require simplemde.min
 //= require markdown_editor
+//= require timezone
 //= require_self

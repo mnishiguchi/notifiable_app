@@ -1,6 +1,6 @@
 div.forum_post [id="#{dom_id(forum_post)}"]
   p.text-muted
-    | Posted by #{forum_post.user.email}
+    | Posted by #{forum_post.user.email} at #{forum_post.created_at}
   = markdownify forum_post.body 
 
 scss:
