@@ -7,15 +7,21 @@
 - dom_class = "dropdown-item notification_item #{"unread" if !notification.read_at?}"
 - dom_id    = dom_id(notification.notifiable)
 
-= link_to mark_as_read_notification_path(notification.id), class: dom_class, id:dom_id, method: :post, remote: true do
+= link_to mark_as_read_notification_path(notification.id),
+    method: :post, 
+    remote: true,
+    class:  dom_class, 
+    id:     dom_id, 
+    title:  notification.notifiable.model_name.name.titleize
+  do
   | #{notification.actor.email} #{notification.action} #{notification.notifiable_type.underscore.humanize.downcase}
 
 - jump_to_notifiable = forum_thread_path(notification.notifiable.forum_thread, anchor: dom_id)
 
 javascript:
   // Jump to the clicked notification item.
-  document.querySelector("##{dom_id}").addEventListener('click', (e) => {
+  document.querySelector("##{ dom_id }").addEventListener('click', e => {
     e.preventDefault()
     document.querySelector('#unredCountDropdown').click() // Close the dropdown.
-    Turbolinks.visit("#{jump_to_notifiable}")             // Jump to the notifiable.
+    Turbolinks.visit("#{ jump_to_notifiable }")           // Jump to the notifiable.
   })
