@@ -12,7 +12,8 @@ class NotificationsController < ApplicationController
     notification = Notification.find(params[:id])
 
     unless notification.unread?
-      render(nothing: true) and return
+      # http://api.rubyonrails.org/classes/ActionController/Head.html
+      return head :ok
     end
 
     # Mark as read the specified notification.
