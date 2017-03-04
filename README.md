@@ -35,60 +35,26 @@ sample app as a base.
 
 ---
 
-## Turbolinks considerations
-
-#### Notification unread count
-- After messing with both approaches mentioned below, I decided to use `Turbolinks.clearCache` because
-it makes things simple and working perfectly.
-
-- A: [Turbolinks.clearCache](https://github.com/turbolinks/turbolinks#turbolinksclearcache)
-
-```
-Turbolinks.clearCache()
-```
-
-- B: [Persisting Elements Across Page Loads](https://github.com/turbolinks/turbolinks#persisting-elements-across-page-loads)
-
-```
-<div id="cart-counter" data-turbolinks-permanent>1 item</div>
-```
-
-#### Third party JS libraries
-
-```js
-App.markdownEditor.init = () => {
-  // turbolinks:before-cache fires before Turbolinks saves the current page to cache.
-  // https://github.com/turbolinks/turbolinks#full-list-of-events
-  document.addEventListener('turbolinks:before-cache', () => {
-    if (App.simplemde) { teardown() }
-  })
-
-  document.addEventListener('turbolinks:load', () => {
-    setup()
-  })
-  //...
-```
-
----
-
-## Formatting text input
-
-- [rails/ActionView/Helpers/TextHelper/simple_format](http://apidock.com/rails/ActionView/Helpers/TextHelper/simple_format)
-- [jch/html-pipeline](https://github.com/jch/html-pipeline) - HTML processing filters and utilities
-
----
-
 ## Some techniques
 
 #### Generate DOM id string in the view
 - [rails/ActionView/RecordIdentifier/dom_id](http://apidock.com/rails/ActionView/RecordIdentifier/dom_id)
 
 #### Jumping to a record using anchor and dom_id
-- [https://gist.github.com/mnishiguchi/a47c9f2391271f184dadcd5cbdabae5b](https://gist.github.com/mnishiguchi/a47c9f2391271f184dadcd5cbdabae5b)
+- [gist](https://gist.github.com/mnishiguchi/a47c9f2391271f184dadcd5cbdabae5b)
 
 #### [Active Record Nested Attributes](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html)
 - [Validating the presence of a parent model](http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html#module-ActiveRecord::NestedAttributes::ClassMethods-label-Validating+the+presence+of+a+parent+model)
 - [gist](https://gist.github.com/mnishiguchi/1206840d369056a3075421005d6f8dc4)
+
+#### Handling turbolinks
+- [gist](https://gist.github.com/mnishiguchi/3baff31bc2c1f401e73abb206ae35501)
+
+#### Formatting text input
+
+- [rails/ActionView/Helpers/TextHelper/simple_format](http://apidock.com/rails/ActionView/Helpers/TextHelper/simple_format)
+- [jch/html-pipeline](https://github.com/jch/html-pipeline) - HTML processing filters and utilities
+- [gist](https://gist.github.com/mnishiguchi/583e420f697a72300e5b801e1c389287)
 
 ---
 

@@ -7,15 +7,11 @@ App.markdownEditor = {}
  * Converts all the textareas into a markdown editor.
  */
 App.markdownEditor.init = function() {
-  // turbolinks:before-cache fires before Turbolinks saves the current page to cache.
-  // https://github.com/turbolinks/turbolinks#full-list-of-events
-  document.addEventListener('turbolinks:before-cache', function() {
-    if (App.simplemde) { teardown() }
-  })
 
-  document.addEventListener('turbolinks:load', function() {
-    setup()
-  })
+  // https://sevos.io/2017/02/27/turbolinks-lifecycle-explained.html
+  document.addEventListener('DOMContentLoaded', setup())
+  document.addEventListener('turbolinks:render', setup())
+  document.addEventListener('turbolinks:before-render', teardown())
 
   function setup() {
     // Ensure that text area exists on the page.
@@ -27,9 +23,11 @@ App.markdownEditor.init = function() {
   }
 
   function teardown() {
-    // https://github.com/NextStepWebs/simplemde-markdown-editor#removing-simplemde-from-textarea
-    App.simplemde.toTextArea()
-    App.simplemde = null
+    if (App.simplemde) {
+      // https://github.com/NextStepWebs/simplemde-markdown-editor#removing-simplemde-from-textarea
+      App.simplemde.toTextArea()
+      App.simplemde = null
+    }
   }
 
   return App.simplemde
