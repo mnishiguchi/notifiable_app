@@ -1,6 +1,6 @@
 function setTimezoneCookie() {
 
-  setCookie('timezone', getTimezoneName())
+  setCookie('tz', getTimezoneName())
 
   function getTimezoneName() {
     // https://medium.com/@jonathanabrams/be-aware-of-browsers-internationalization-api-db94bb32f9a8#.hjgg1453j

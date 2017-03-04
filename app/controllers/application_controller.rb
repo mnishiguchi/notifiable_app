@@ -18,7 +18,15 @@ class ApplicationController < ActionController::Base
     # When the request completes, the original time zone is set back.
     # https://robots.thoughtbot.com/its-about-time-zones
     def set_time_zone(&block)
-      ap "timezone is set to #{cookies[:timezone]}"
-      Time.use_zone(cookies[:timezone], &block) if cookies[:timezone]
+      if cookies[:tz]
+        puts "*" * 60
+        puts "Time zone: #{cookies[:tz]}"
+        puts "*" * 60
+        Time.use_zone(cookies[:tz], &block)
+      else
+        # The around method must yield to execute the action.
+        # http://guides.rubyonrails.org/action_controller_overview.html#after-filters-and-around-filters
+        yield
+      end
     end
 end
