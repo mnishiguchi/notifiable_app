@@ -11,7 +11,8 @@ class ApplicationController < ActionController::Base
   private
 
     def set_notifications
-      @notifications = Notification.where(recipient: current_user).recent
+      @notifications = Notification.includes([:notifiable, :actor])
+                                   .where(recipient: current_user).recent
     end
 
     # Sets the time zone for the duration of a request.
